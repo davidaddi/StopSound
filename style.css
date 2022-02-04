@@ -1,0 +1,193 @@
+@namespace xlink 'http://www.w3.org/1999/xlink';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  --hoverIcons: #EFEFEF;
+  --btnGradient1: #5468FF;
+  --btnGradient2: #6B9FFF;
+  --btnGradient3: #7ECDFF;
+  --textIndicator: #707070;
+  --btnBg:"#3c4fe0";
+  --bg: #FFFFFF;            /* Dark/Light Mode : */
+  --headerColor : #161827;  /* when we switch from one mode to another */
+  --icon: "images/mute.png" /* we binded some JS to them to facilitate the switch */
+}
+
+@font-face {
+    font-family: "SF Pro Display Bold";
+    src: url("SF-Pro-Display-Bold.ttf") format("ttf");
+}
+
+body {
+    font-family: 'Epilogue', sans-serif;
+}
+
+html, body
+{
+    height: 100%;
+    overflow: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* Button */
+
+.py-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    margin: 0;
+    margin-bottom: 16px;
+    will-change: box-shadow,transform;
+    text-decoration: none;
+    background: linear-gradient(4deg, var(--btnGradient1),var(--btnGradient2), var(--btnGradient3));
+    color: #fff;
+    font-family: 'SF Pro Display Bold', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.py-button:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+    transform: translateY(-0.1em);
+}
+
+.py-button:active {
+    box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+    transform: translateY(0em);
+}
+
+
+.py-button-icon {
+    margin-right: 12px;
+}
+
+.top-container {
+    margin-top: -15px;
+}
+
+.top-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 50%;
+    transition: all 150ms ease;
+    cursor: pointer;
+}
+
+.top-icon:hover {
+    background-color: var(--hoverIcons);
+}
+
+.top-icon svg * { transition: all 150ms; }
+
+.main-container {
+    position: relative;
+    width: 325px;
+    height: 450px; /* had to fix the height because object height auto not working */
+    border: none;
+    background-color: var(--bg);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 24px 24px 16px;
+    transition : background-color 250ms;
+}
+
+
+.reset-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.darkmode-button {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 125px;
+}
+
+.top-logo {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.top-logo-title {
+    font-size: 24px;
+    color: var(--headerColor);
+    font-weight: 900;
+    margin-top: -5px;
+}
+
+.middle-container {
+    padding-top: 15px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.indicator-text {
+    padding-top: 34px;
+    font-size: 13px;
+    color: var(--textIndicator);
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 900;
+}
+
+.state-indicator-illustration {
+    margin-top: 25px;
+    margin-bottom: -10px;
+}
+
+
+#note-double-1 {
+    /*overflow: hidden;*/
+    transform: translateY(0px);
+    animation: float 6s ease-in-out infinite;
+}
+
+
+#note-simple-1 {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 500ms;
+}
+
+#note-simple-2 {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1000ms;
+}
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }

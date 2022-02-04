@@ -1,0 +1,5 @@
+ -> Animation de l'illustration svg
+    --> Notes de musique qui flottent de haut en bas
+    --> Légère animation audio spectrum
+
+https://stackoverflow.com/questions/29632647/detect-if-audio-is-playing-in-browser-javascript
